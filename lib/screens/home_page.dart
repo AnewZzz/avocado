@@ -1,6 +1,7 @@
 import 'package:avacado_blog_app/config/export_config.dart';
 import 'package:avacado_blog_app/provider/details_provider.dart';
 import 'package:avacado_blog_app/screens/details_screen.dart';
+import 'package:avacado_blog_app/widgets/custom_shimmer.dart';
 import 'package:avacado_blog_app/widgets/export_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -55,7 +56,20 @@ class HomeScreen extends StatelessWidget {
               Expanded(
                 child: Consumer<DetailsProvider>(
                   builder: (context, detailProv, child) {
-                    if (detailProv.detailsModelList == null) {
+                    
+                    
+                    
+                    if ( detailProv.isLoading){
+                       return CustomShimmers.listView(
+                        
+                              scrollDirection: Axis.vertical,
+                              itemCount: 6,
+                              padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width *0.07, vertical: MediaQuery.of(context).size.width *0.04),
+                              height: 200.h,
+                              width: MediaQuery.of(context).size.width * 0.43,
+                              seperator: 10.h);
+                    } 
+                    else if (detailProv.detailsModelList == null) {
                       return const Center(child: Text('Data Empty'));
                     }
                     return TabBarView(
@@ -63,7 +77,8 @@ class HomeScreen extends StatelessWidget {
                         SingleChildScrollView(
                           child: Padding(
                             padding:  const EdgeInsets.only(top: 15,  bottom: 10, left: 10, right: 10 ),
-                            child: Wrap(
+                            child: 
+                            Wrap(
                               spacing: 10.h,
                               runSpacing: 10.h,
                               alignment: WrapAlignment.start,

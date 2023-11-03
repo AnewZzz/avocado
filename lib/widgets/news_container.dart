@@ -16,7 +16,7 @@ class NewsContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 240.h,
+      height: MediaQuery.of(context).size.height * 0.33,
       width: MediaQuery.of(context).size.width*.45,
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
@@ -53,7 +53,7 @@ class NewsContainer extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 9),
-              child: Image.asset('${CgConstant.imageFolderPath}/image.png', height: MediaQuery.of(context).size.height * 0.19, width: MediaQuery.of(context).size.width,fit: BoxFit.cover,),
+              child: Image.asset('${CgConstant.imageFolderPath}/image.png', height: MediaQuery.of(context).size.height * 0.2, width: MediaQuery.of(context).size.width,fit: BoxFit.cover,),
             )
         ],
       ),

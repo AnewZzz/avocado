@@ -7,10 +7,17 @@ import 'package:flutter/material.dart';
 
 class DetailsProvider extends ChangeNotifier {
   List<DetailsModelMeta>? detailsModelList;
+  bool isLoading = false;
+
+  toggleLoading(bool newLoading) {
+    isLoading = newLoading;
+    notifyListeners();
+  }
 
   Future<void> fetchDetailDatas() async {
+    toggleLoading(true);
     final allDetailDatas = await DetailRequest().getDetails();
-
+    toggleLoading(false);
     detailsModelList = allDetailDatas;
     notifyListeners();
   }

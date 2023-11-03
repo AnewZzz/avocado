@@ -11,5 +11,7 @@ class CgColor {
   static const Color facebook = Color(0XFF0F5EA2);
   static const Color abc = Color(0XFF17AF4E);
   static const Color topnews = Color(0XFF812082);
+  static const Color darkGray = Color(0XFFA9A9A9);
+
 
 }

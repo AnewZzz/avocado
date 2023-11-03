@@ -7,18 +7,12 @@ class BaseRequest{
   Future<Response> get(
       {Map<String, dynamic>? queryParameters,
       required String path,
-      String? paginationUrl}) async {
- 
-
-    
+      String? paginationUrl}) async {    
       final Dio dio = Dio(
         BaseOptions(
           baseUrl: CgConstant.baseUrl,
         ),
       );
-
-    
-
       Response response = await dio.get(
         path,
         queryParameters: queryParameters,
